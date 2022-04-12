@@ -9,40 +9,37 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
+import com.example.retrofitapp.databinding.ActivityMainBinding
 
-    
-class My_Adapter:ListAdapter<item_data, My_Adapter.ItemViewHolder>(DiffUtil()) {
+
+class My_Adapter:ListAdapter<item_data,My_Adapter.ItemViewHolder>(DiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): My_Adapter.ItemViewHolder {
         val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        val getItem: MutableList<item_data>
         val item = getItem(position)
         holder.bind(item)
     }
 
-    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<item_data>(){
-        override fun areItemsTheSame(oldItem: item_data, newItem:item_data): Boolean {
-            return oldItem.id == newItem.id
-        }
 
-        override fun areContentsTheSame(oldItem: item_data, newItem: item_data): Boolean {
-            return oldItem == newItem
-        }
-    }
+
+
+
 
     class ItemViewHolder(val binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: item_data){
             binding.apply {
                 itemTitle.text = item.user.name
-                itemAddress.text = item.user.location
-                itemDesc.text = item.user.bio
+                item_address.text = item.user.location
+                item_desc.text = item.user.bio
 
-                Glide.with(itemImageView.context)
+                Glide.with(item_imageView.context)
                     .load(item.urls.regular)
                     .centerCrop()
-                    .into(itemImageView)
+                    .into(item_imageView)
 
 
             }
@@ -51,4 +48,3 @@ class My_Adapter:ListAdapter<item_data, My_Adapter.ItemViewHolder>(DiffUtil()) {
 }
 
 
-}
