@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.retrofitapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
+//import com.example.retrofitapp.Retrofit
 
 class MainActivity : AppCompatActivity() {
 

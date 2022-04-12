@@ -11,6 +11,8 @@ import android.view.View
 import android.widget.TextView
 import com.example.retrofitapp.databinding.ActivityMainBinding
 
+import com.example.retrofitapp.retrofitApi
+
 
 class My_Adapter:ListAdapter<item_data,My_Adapter.ItemViewHolder>(DiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): My_Adapter.ItemViewHolder {
