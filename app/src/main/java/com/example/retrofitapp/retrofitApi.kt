@@ -1,7 +1,8 @@
 package com.example.retrofitapp
 
+import android.media.Image
 import android.provider.SyncStateContract
-import com.example.retrofitapp.Constants.Companion.baseUrl
+
 import com.example.retrofitapp.Constants.Companion.baseurl
 import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ interface retrofitApi {
 //    const val baseUrl: String = "https://api.unsplash.com/"
 
     @GET("/photos")
-    fun getImages(@Query("client_id") clientId: String, @Query("page") page: Int): Response<List<item_data>>
+    fun getImages(@Query("client_id") clientId: String, @Query("page") page: Int): retrofit2.Call<List<Image>>
     companion object{
         fun create(): retrofitApi {
             val client = OkHttpClient.Builder()
