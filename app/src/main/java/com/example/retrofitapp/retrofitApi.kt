@@ -15,7 +15,7 @@ import retrofit2.http.Query
 interface retrofitApi {
 //    const val baseUrl: String = "https://api.unsplash.com/"
 
-    @GET("/photos")
+    @GET("photos")
     fun getImages(@Query("client_id") clientId: String, @Query("page") page: Int): retrofit2.Call<List<Image>>
     companion object{
         fun create(): retrofitApi {
